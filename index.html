@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffe6f2;
+            color: #b30000;
+            padding: 20px;
+            overflow: hidden;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            margin-top: 100px;
+        }
+        .buttons {
+            margin-top: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            position: absolute;
+            transition: transform 0.2s ease-out; /* Smooth movement */
+        }
+        #yes {
+            background-color: #ff4d4d;
+            color: white;
+            position: relative;
+        }
+        #no {
+            background-color: #ddd;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Will You Be My Valentine? ❤️</h1>
+        <div class="buttons">
+            <button id="yes" onclick="location.href='valentine.html'">Yes ❤️</button>
+            <button id="no">No 😢</button>
+        </div>
+    </div>
+
+    <script>
+        let noButton = document.getElementById("no");
+
+        function moveNo() {
+            let moveX = (Math.random() * 60) - 30; // Move by ±30px
+            let moveY = (Math.random() * 60) - 30;
+
+            let currentX = noButton.offsetLeft;
+            let currentY = noButton.offsetTop;
+
+            let newX = currentX + moveX;
+            let newY = currentY + moveY;
+
+            noButton.style.transition = "transform 0.2s ease-out"; // Smooth escape
+            noButton.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        }
+
+        noButton.addEventListener("mouseover", moveNo);
+    </script>
+
+</body>
+</html>
