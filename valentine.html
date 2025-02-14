@@ -2,59 +2,77 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My Forever Valentine 🌹</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>For My Beautiful Wife 🌹</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             text-align: center;
             background: #ffdde1;
             color: #a83f39;
             margin: 0;
-            overflow: hidden;
+            overflow-x: hidden;
         }
         .hearts {
-            position: absolute;
+            position: fixed;
             width: 100%;
             height: 100%;
             pointer-events: none;
+            z-index: 0;
         }
         .heart {
             position: absolute;
-            font-size: 24px;
-            animation: float 6s linear infinite;
+            font-size: 20px;
+            animation: float 8s linear infinite;
             opacity: 0;
         }
         @keyframes float {
-            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+            0% { transform: translateY(110vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
         }
         .message {
             position: relative;
-            max-width: 600px;
-            margin: 100px auto;
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 15px;
-            box-shadow: 0 0 20px rgba(168, 63, 57, 0.2);
-            line-height: 1.6;
+            width: 90%;
+            margin: 20px auto;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            box-shadow: 0 2px 15px rgba(168, 63, 57, 0.1);
+            line-height: 1.5;
+            z-index: 1;
         }
         .flowers {
-            width: 200px;
-            margin: 20px auto;
+            width: 150px;
+            margin: 10px auto;
             display: block;
-            animation: pulse 2s infinite;
+            border-radius: 8px;
         }
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+        h2 {
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+        p {
+            font-size: 1em;
+            margin: 12px 0;
         }
         .signature {
-            font-family: 'Georgia', serif;
+            font-family: Georgia, serif;
             color: #d14d72;
-            margin-top: 20px;
+            margin: 15px 0;
             font-style: italic;
+            font-size: 1.1em;
+        }
+        @media (max-width: 400px) {
+            .message {
+                padding: 12px;
+                margin-top: 15px;
+            }
+            h2 {
+                font-size: 1.3em;
+            }
+            .flowers {
+                width: 130px;
+            }
         }
     </style>
 </head>
@@ -67,33 +85,40 @@
              class="flowers">
         <h2>To My Beautiful Wife,</h2>
         <p>
-            These animated blooms may fade with time,<br>
-            but my love for you grows stronger every day.<br>
-            Even across continents, you remain<br>
-            my constant star, my reason, my everything.
+            HAPPY VALENTINE'S DAY MY LOVE,<br>
+            Even though I can't hand you real flowers today,<br>
+            Know that my love for you grows stronger each moment.<br>
+            You'll always be my world and the purpose i live for.
         </p>
         <p>
-            One day I'll place real flowers in your hands,<br>
-            but until then, let these petals remind you:<br>
-            No distance could ever change what we share.
+            Distance can't change what we have darling.<br>
+            We'll get through it and once we do i'll get you real flowers every week<br>
+            Your gift will be waiting haten ntlegou❤️.
         </p>
-        <div class="signature">Forever Yours,<br>[Your Name]</div>
+        <div class="signature">Forever yours,<br>Ali</div>
     </div>
 
     <script>
-        // Create floating hearts
+        // Mobile-optimized floating hearts
         function createHearts() {
             const heartsContainer = document.getElementById('hearts');
-            for (let i = 0; i < 50; i++) {
+            const heartCount = window.innerWidth < 400 ? 25 : 30;
+            
+            for (let i = 0; i < heartCount; i++) {
                 const heart = document.createElement('div');
                 heart.className = 'heart';
                 heart.style.left = Math.random() * 100 + '%';
-                heart.style.animationDelay = Math.random() * 6 + 's';
+                heart.style.animationDelay = Math.random() * 4 + 's';
                 heart.innerHTML = '❤️';
                 heartsContainer.appendChild(heart);
             }
         }
-        createHearts();
+        
+        // Ensure mobile compatibility
+        document.addEventListener('DOMContentLoaded', function() {
+            createHearts();
+            document.body.style.touchAction = 'manipulation';
+        });
     </script>
 </body>
 </html>
