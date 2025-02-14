@@ -36,7 +36,7 @@
             cursor: pointer;
             border-radius: 5px;
             position: absolute;
-            transition: transform 0.2s ease-out; /* Smooth movement */
+            transition: transform 0.2s ease-out;
         }
         #yes {
             background-color: #ff4d4d;
@@ -46,11 +46,11 @@
         #no {
             background-color: #ddd;
             color: black;
+            transition: left 0.8s ease-out, top 0.8s ease-out;
         }
     </style>
 </head>
 <body>
-
     <div class="container">
         <h1>Will You Be My Valentine? ❤️</h1>
         <div class="buttons">
@@ -61,23 +61,29 @@
 
     <script>
         let noButton = document.getElementById("no");
+        let currentX = 0;
+        let currentY = 0;
 
-        function moveNo() {
-            let moveX = (Math.random() * 60) - 30; // Move by ±30px
-            let moveY = (Math.random() * 60) - 30;
-
-            let currentX = noButton.offsetLeft;
-            let currentY = noButton.offsetTop;
-
-            let newX = currentX + moveX;
-            let newY = currentY + moveY;
-
-            noButton.style.transition = "transform 0.2s ease-out"; // Smooth escape
-            noButton.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        function moveNo(e) {
+            if (e.type === 'touchstart') e.preventDefault();
+            
+            // Larger movement range
+            const moveX = (Math.random() - 0.5) * 100; // -50px to +50px
+            const moveY = (Math.random() - 0.5) * 100;
+            
+            // Update cumulative position
+            currentX += moveX;
+            currentY += moveY;
+            
+            // Apply new position
+            noButton.style.left = currentX + 'px';
+            noButton.style.top = currentY + 'px';
         }
 
-        noButton.addEventListener("mouseover", moveNo);
+        // Mobile touch event
+        noButton.addEventListener('touchstart', moveNo, { passive: false });
+        // Desktop hover event
+        noButton.addEventListener('mouseover', moveNo);
     </script>
-
 </body>
 </html>
