@@ -3,38 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My Love</title>
+    <title>For My Forever Valentine 🌹</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background-color: #ffe6e6;
-            color: #b30000;
-            padding: 20px;
+            background: #ffdde1;
+            color: #a83f39;
+            margin: 0;
+            overflow: hidden;
         }
-        .container {
-            max-width: 600px;
-            margin: auto;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        .hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
         }
-        .flowers {
-            width: 100px;
-            margin: 20px;
+        .heart {
+            position: absolute;
+            font-size: 24px;
+            animation: float 6s linear infinite;
+            opacity: 0;
+        }
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
         }
         .message {
-            font-size: 20px;
+            position: relative;
+            max-width: 600px;
+            margin: 100px auto;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(168, 63, 57, 0.2);
+            line-height: 1.6;
+        }
+        .flowers {
+            width: 200px;
+            margin: 20px auto;
+            display: block;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .signature {
+            font-family: 'Georgia', serif;
+            color: #d14d72;
             margin-top: 20px;
+            font-style: italic;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Happy Valentine's Day, Najoulti ❤️</h1>
-        <img class="flowers" src="https://imgs.search.brave.com/eLX5iuPoYaaWm7h4jctTWGDc9OkjCl19kPbOORppxgA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/YW5pbWF0ZWRpbWFn/ZXMub3JnL2RhdGEv/bWVkaWEvNTAvYW5p/bWF0ZWQtZmxvd2Vy/LWltYWdlLTAwNjQu/Z2lm.gif" alt="Flowers">
-        <p class="message" id="customMessage">Some flowers for the prettiest girl and the best wife in the world, the girl that owns my heart and the purpose of my life❤️❤️ </p>
+    <div class="hearts" id="hearts"></div>
+    
+    <div class="message">
+        <img src="https://imgs.search.brave.com/eLX5iuPoYaaWm7h4jctTWGDc9OkjCl19kPbOORppxgA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/YW5pbWF0ZWRpbWFn/ZXMub3JnL2RhdGEv/bWVkaWEvNTAvYW5p/bWF0ZWQtZmxvd2Vy/LWltYWdlLTAwNjQu/Z2lm.gif" 
+             alt="Animated flowers" 
+             class="flowers">
+        <h2>To My Beautiful Wife,</h2>
+        <p>
+            These animated blooms may fade with time,<br>
+            but my love for you grows stronger every day.<br>
+            Even across continents, you remain<br>
+            my constant star, my reason, my everything.
+        </p>
+        <p>
+            One day I'll place real flowers in your hands,<br>
+            but until then, let these petals remind you:<br>
+            No distance could ever change what we share.
+        </p>
+        <div class="signature">Forever Yours,<br>[Your Name]</div>
     </div>
+
+    <script>
+        // Create floating hearts
+        function createHearts() {
+            const heartsContainer = document.getElementById('hearts');
+            for (let i = 0; i < 50; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDelay = Math.random() * 6 + 's';
+                heart.innerHTML = '❤️';
+                heartsContainer.appendChild(heart);
+            }
+        }
+        createHearts();
+    </script>
 </body>
 </html>
